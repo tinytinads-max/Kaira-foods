@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaira Foods - Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #28170f;
+            background: #f7ede3;
+            overflow-x: hidden;
+             padding-top: 185px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1330px, calc(100% - 80px));
+            margin: 0 auto;
+        }
+
+
+        /* ================================
+           TOP BAR
+        ================================= */
+
+     .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: #ae0000;
+    color: #fff;
+    z-index: 2000;
+}
+
+    .top-bar-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+        .top-text {
+            font-size: 12px;
+                    letter-spacing: .2px;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ae0000;
+            background: #fff;
+            transition: .25s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-2px);
+            background: #f5d9c8;
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+      .header {
+    position: fixed;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    z-index: 1500;
+    background: #f8eee5;
+}
+
+       .navbar {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+        .logo img {
+            width: 165px;
+            height: auto;
+        }
+
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+        }
+
+        .desktop-menu a {
+            position: relative;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1d120d;
+            padding: 10px 0;
+        }
+
+        .desktop-menu a:hover{
+            color:#a90000;
+
+        }
+        .desktop-menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            width: 0;
+            height: 2px;
+            
+            transition: .3s ease;
+            color: #a90000;
+        }
+
+       .desktop-menu a:hover::after {
+            width: 100%;
+        } 
+
+
+        /* ================================
+           HAMBURGER
+        ================================= */
+
+        .hamburger {
+            width: 45px;
+            height: 45px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            border-radius: 5px;
+            background: #6d2b0b;
+            transition: .3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+
+        /* ================================
+           MOBILE MENU
+        ================================= */
+
+    .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    background: #f8eee5;
+    border-top: 1px solid #e4d7cc;
+    box-shadow: 0 10px 25px rgba(50, 20, 5, .08);
+
+    /* Closed */
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+
+    /* Slide from LEFT to RIGHT */
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease,
+        visibility 0.4s ease;
+}
+
+
+/* Open */
+.mobile-menu.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+       .mobile-menu-inner {
+    width: min(1330px, calc(100% - 40px));
+    margin: auto;
+}
+
+    .mobile-menu a {
+    display: block;
+    padding: 17px 5px;
+    border-bottom: 1px solid #e4d7cc;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: #35190e;
+}
+
+        .mobile-menu a:last-child {
+            border-bottom: 0;
+        }
+
+        .mobile-menu a:hover {
+            color: #a33c0b;
+        }
+
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            min-height: 212px;
+            display: flex;
+            align-items: center;
+            background: url(./images/about-banner.png);
+
+            /*
+              Replace this filename with the uploaded
+              screenshot/banner image.
+            */
+            /* background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(239, 201, 166, .2),
+                    rgba(239, 201, 166, .02)
+                ),
+                url("contact-banner.jpg"); */
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            width: min(1330px, calc(100% - 80px));
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-family:"Playfair Display",serif;
+            font-size: 50px;
+            line-height: 1.1;
+            color: #30170c;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #251810;
+        }
+
+
+        /* ================================
+           CONTACT WRAPPER
+        ================================= */
+
+        .contact-section {
+            width: min(1330px, calc(100% - 80px));
+            margin: 40px auto;
+            padding: 30px 50px;
+            background: rgba(255, 255, 255, .46);
+            border-bottom: solid 1px #ead9c7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 325px minmax(0, 1fr);
+            gap: 50px;
+        }
+
+
+        /* ================================
+           CONTACT INFORMATION
+        ================================= */
+
+        .contact-info {
+            padding-right: 35px;
+            border-right: 1px solid #e0d5cb;
+        }
+
+        .section-title {
+            
+            font-size: 29px;
+            line-height: 1.2;
+            color: #3a1d10;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            flex: 0 0 42px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #91400f;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+        .contact-item-content {
+            min-width: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #2b201b;
+        }
+
+
+        /* ================================
+           FORM
+        ================================= */
+
+        .form-title {
+            margin-bottom: 25px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-group {
+            min-width: 0;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid #ded5cd;
+            background: rgba(255, 255, 255, .56);
+            border-radius: 6px;
+            padding: 14px 15px;
+            color: #28170f;
+            font-size: 14px;
+            outline: none;
+
+            transition:
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .contact-form input {
+            height: 48px;
+        }
+
+        .contact-form textarea {
+            height: 108px;
+            resize: vertical;
+            min-height: 108px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #665b55;
+            opacity: 1;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #9a4315;
+            box-shadow: 0 0 0 3px rgba(154, 67, 21, .08);
+        }
+
+        .message-field {
+            grid-column: 1 / -1;
+        }
+
+        .submit-button {
+            width: 206px;
+            min-height: 38px;
+            border: 0;
+            border-radius: 5px;
+            padding: 10px 18px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            background: #863600;
+            color: #fff;
+            font-size: 13px;
+           
+
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .submit-button:hover {
+            background: #a54408;
+            transform: translateY(-1px);
+        }
+
+        .submit-button span {
+            font-size: 15px;
+        }
+
+
+        /* ================================
+           FEATURES
+        ================================= */
+
+        .features {
+            width: min(1000px, calc(100% - 80px));
+            margin: 70px auto 35px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 0 40px;
+            border-right: 1px solid #ded3ca;
+        }
+
+        .feature:first-child {
+            padding-left: 0;
+        }
+
+        .feature:last-child {
+            padding-right: 0;
+            border-right: 0;
+        }
+
+        .feature-icon {
+            flex: 0 0 55px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 55px;
+            height: 55px;
+            fill: none;
+            stroke: #3c2012;
+            stroke-width: 1.5;
+        }
+
+        .feature h4 {
+            font-size: 15px;
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            line-height: 1.45;
+            color: #382a23;
+        }
+
+        /* ================================
+           bottpm-contact
+        ================================= */
+  .features-bottom{
+            text-align: center;
+            margin: 0px auto 0px;
+            font-size: 13px;
+            background:#863600;
+            color: #fff;
+            height: 35px;
+            line-height: 35px;;
+        }
+        /* ================================
+           LARGE TABLET
+        ================================= */
+
+        @media (max-width: 1100px) {
+
+            .container,
+            .hero-content,
+            .contact-section,
+            .features {
+                width: calc(100% - 60px);
+            }
+
+            .desktop-menu {
+                gap: 35px;
+            }
+
+            .contact-section {
+                padding: 30px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 280px minmax(0, 1fr);
+                gap: 35px;
+            }
+
+            .contact-info {
+                padding-right: 25px;
+            }
+
+            .feature {
+                padding: 0 25px;
+            }
+        }
+
+
+        /* ================================
+           TABLET
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .top-bar {
+                height: 35px;
+            }
+ .header {
+        top: 35px;
+    }
+            .navbar {
+                min-height: 105px;
+            }
+
+            .logo img {
+                width: 145px;
+            }
+
+            /* Desktop menu disappears */
+            .desktop-menu {
+                display: none;
+            }
+
+            /* Hamburger appears */
+            .hamburger {
+                display: flex;
+            }
+   body {
+        padding-top: 140px;
+    }
+     .mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+            .hero {
+                min-height: 230px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .contact-info {
+                padding-right: 0;
+                padding-bottom: 30px;
+                border-right: 0;
+                border-bottom: 1px solid #e0d5cb;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature,
+            .feature:first-child,
+            .feature:last-child {
+                padding: 0 0 25px;
+                border-right: 0;
+                border-bottom: 1px solid #ded3ca;
+            }
+
+            .feature:last-child {
+                border-bottom: 0;
+            }
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .container,
+            .hero-content,
+            .contact-section,
+            .features {
+                width: calc(100% - 32px);
+            }
+
+            /* Top bar */
+
+            .top-bar {
+                height: 35px;
+            }
+
+            .top-bar-inner {
+                justify-content: center;
+            }
+
+            .top-text {
+                font-size: 12px;
+            }
+
+            .social-icons {
+                display: none;
+            }
+
+            /* Header */
+
+            .navbar {
+                min-height: 82px;
+            }
+              body {
+        padding-top: 117px;
+    }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .hamburger {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hamburger span {
+                width: 26px;
+                height: 3px;
+            }
+
+            /* Mobile menu */
+
+            .mobile-menu-inner {
+                width: calc(100% - 32px);
+            }
+
+            /* Hero */
+
+            .hero {
+                min-height: 210px;
+                background-position: center center;
+            }
+
+            .hero-content {
+                width: calc(100% - 32px);
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                max-width: 320px;
+                font-size: 16px;
+            }
+
+            /* Contact */
+
+            .contact-section {
+                margin: 25px auto;
+                padding: 25px 18px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .contact-grid {
+                gap: 30px;
+            }
+
+            .contact-item {
+                gap: 13px;
+            }
+
+            .contact-icon {
+                flex-basis: 40px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .contact-item p {
+                font-size: 13px;
+            }
+
+            /* Form */
+
+            .contact-form {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .message-field {
+                grid-column: auto;
+            }
+
+            .contact-form input {
+                height: 48px;
+            }
+
+            .contact-form textarea {
+                height: 125px;
+            }
+
+            .submit-button {
+                width: 100%;
+                height: 45px;
+            }
+
+            /* Features */
+
+            .features {
+                margin-top: 45px;
+                gap: 25px;
+            }
+
+            .feature {
+                gap: 14px;
+            }
+
+            .feature-icon {
+                flex-basis: 48px;
+                width: 48px;
+                height: 48px;
+            }
+
+            .feature-icon svg {
+                width: 48px;
+                height: 48px;
+            }
+
+            .feature h4 {
+                font-size: 14px;
+            }
+
+            .feature p {
+                font-size: 13px;
+            }
+        }
+
+
+        /* ================================
+           SMALL PHONES
+        ================================= */
+
+        @media (max-width: 380px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .contact-section {
+                padding: 22px 14px;
+            }
+
+            .contact-item {
+                gap: 10px;
+            }
+
+            .contact-item p {
+                font-size: 12px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .feature {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ==========================
+         TOP BAR
+    =========================== -->
+
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+
+            <p class="top-text">
+                Made With Traditional Recipes
+            </p>
+
+            <div class="social-icons">
+               <span><img src="./images/facebook.png"></span>
+                <span><img src="./images/insta.png"></span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ==========================
+         HEADER
+    =========================== -->
+
+    <header class="header">
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                <!-- Replace with your actual logo -->
+                 <img src="images/inner-logo.png" alt="Kaira Foods">
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav class="desktop-menu">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="products.html">PRODUCTS</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+
+
+            <!-- Hamburger -->
+
+            <button
+                class="hamburger"
+                id="hamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                type="button"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+
+        <!-- Mobile Navigation -->
+
+        <div class="mobile-menu" id="mobileMenu">
+
+            <nav class="mobile-menu-inner">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="products.html">PRODUCTS</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================
+         HERO
+    =========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Contact</h1>
+
+            <p>
+                Rooted in tradition, made with love.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         CONTACT
+    =========================== -->
+
+    <section class="contact-section">
+
+        <div class="contact-grid">
+
+
+            <!-- Contact Information -->
+
+            <div class="contact-info">
+
+                <h2 class="section-title">
+                    Get in Touch
+                </h2>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                       <img src="./images/location.png">
+                    </div>
+
+                    <div class="contact-item-content">
+
+                        <h4>Our Address</h4>
+
+                        <p>
+                           Kaira Foods<br>
+                            Koovappady, Ernakulam (D)<br>
+South India, Kerala State
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div class="contact-item-content">
+
+                        <h4>Phone</h4>
+
+                        <p>
+                            +91 98765 43210<br>
+                            (Mon – Sat | 9:00 AM – 6:00 PM)
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div class="contact-item-content">
+
+                        <h4>Email</h4>
+
+                        <p>
+                            info@tasteofhome.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                      <img src="./images/whatsapp.png">
+                    </div>
+
+                    <div class="contact-item-content">
+
+                        <h4>WhatsApp</h4>
+
+                        <p>
+                            +91 98765 43210
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Form -->
+
+            <div class="contact-form-wrapper">
+
+                <h2 class="section-title form-title">
+                    Send Us a Message
+                </h2>
+
+
+                <form class="contact-form">
+
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            placeholder="Your Name*"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            placeholder="Your Email*"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <input
+                            type="tel"
+                            placeholder="Your Phone*"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            placeholder="Subject*"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group message-field">
+                        <textarea
+                            placeholder="Your Message*"
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+                        <span>SEND MESSAGE</span>
+                        <span>➤</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         FEATURES
+    =========================== -->
+
+    <section class="features">
+
+
+        <!-- Feature 1 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+              <img src="./images/leaf.png">
+
+            </div>
+
+            <div>
+                <h4>No Preservatives</h4>
+
+                <p>
+                    100% Natural
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Feature 2 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+<img src="./images/Traditional.png">
+
+            </div>
+
+            <div>
+                <h4>Traditional Recipes</h4>
+
+                <p>
+                   Authentic Taste
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Feature 3 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <img src="./images/Quality.png">
+
+            </div>
+
+            <div>
+                <h4>Premium Quality</h4>
+
+                <p>
+                   Finest Ingredients
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+<div class="features-bottom">Designed by tinyt interactive</div>
+
+    <!-- ==========================
+         JAVASCRIPT
+    =========================== -->
+
+    <script>
+
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        hamburger.addEventListener("click", function () {
+
+            const isOpen = hamburger.classList.toggle("active");
+
+            mobileMenu.classList.toggle("open");
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+        });
+
+
+        /* Close menu when a mobile link is clicked */
+
+        const mobileLinks = document.querySelectorAll(
+            ".mobile-menu a"
+        );
+
+        mobileLinks.forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                hamburger.classList.remove("active");
+
+                mobileMenu.classList.remove("open");
+
+                hamburger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+
+        /* Close menu when resizing back to desktop */
+
+        window.addEventListener("resize", function() {
+
+            if (window.innerWidth > 900) {
+
+                hamburger.classList.remove("active");
+
+                mobileMenu.classList.remove("open");
+
+                hamburger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaira Foods | About Us</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #211710;
+            background: #f7eadf;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --red: #ad0000;
+            --dark-red: #8e0000;
+            --cream: #f7eadf;
+            --cream-light: #fbf0e7;
+            --brown: #35190e;
+            --text: #211710;
+            --line: #d8c7b7;
+            --container: 1335px;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+            width: min(
+                var(--container),
+                calc(100% - 48px)
+            );
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .top-bar {
+            width: 100%;
+            height: 35px;
+            background: var(--red);
+            color: #fff;
+        }
+
+        .top-bar-inner {
+            height: 100%;
+
+            width: min(
+                var(--container),
+                calc(100% - 48px)
+            );
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-message {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .2px;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            transition: .25s ease;
+        }
+
+        .social-icons img {
+            width: 23px;
+            height: 23px;
+            object-fit: contain;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+            height: 150px;
+
+            background: rgba(248, 237, 227, .98);
+
+            border-bottom: 1px solid rgba(80, 40, 15, .07);
+        }
+
+        .header-inner {
+            width: min(
+                var(--container),
+                calc(100% - 48px)
+            );
+
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* Logo */
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 175px;
+            height: auto;
+        }
+
+
+        /* Desktop Navigation */
+
+        .desktop-navigation {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+        }
+
+        .desktop-navigation a {
+            position: relative;
+
+            color: #18100c;
+
+            font-size: 16px;
+            font-weight: 500;
+
+            padding: 10px 0;
+
+            transition: color .25s ease;
+        }
+
+        .desktop-navigation a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 2px;
+
+            width: 0;
+            height: 2px;
+
+         
+
+            transition: width .25s ease;
+        }
+
+        .desktop-navigation a:hover {
+            color: var(--red);
+        }
+
+        .desktop-navigation a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           HAMBURGER
+        ===================================================== */
+
+        .hamburger {
+            display: none;
+
+            width: 45px;
+            height: 45px;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            padding: 7px;
+
+            position: relative;
+            z-index: 1200;
+        }
+
+        .hamburger span {
+            display: block;
+
+            width: 28px;
+            height: 3px;
+
+            margin: 5px auto;
+
+            border-radius: 3px;
+
+            background: var(--brown);
+
+            transition:
+                transform .3s ease,
+                opacity .3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ===================================================== */
+
+        .mobile-navigation {
+            position: fixed;
+
+            top: 0;
+            right: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            background: var(--cream);
+
+            padding-top: 125px;
+
+            transform: translateX(100%);
+
+            transition:
+                transform .35s ease;
+
+            z-index: 1100;
+
+            overflow-y: auto;
+        }
+
+        .mobile-navigation.active {
+            transform: translateX(0);
+        }
+
+        .mobile-navigation-inner {
+            width: calc(100% - 40px);
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 0;
+        }
+
+        .mobile-navigation a {
+            width: 100%;
+
+            text-align: center;
+
+            padding: 20px 10px;
+
+            border-bottom: 1px solid #dfcfc1;
+
+            font-size: 18px;
+            font-weight: 600;
+
+            color: var(--brown);
+
+            transition: color .25s ease;
+        }
+
+        .mobile-navigation a:hover {
+            color: var(--red);
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            min-height: 213px;
+
+            overflow: hidden;
+
+            background: #d8ad83;
+        }
+
+        .hero-image {
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(221, 176, 132, .82) 0%,
+                    rgba(221, 176, 132, .48) 40%,
+                    rgba(221, 176, 132, .10) 72%
+                ),
+                url("./images/hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(
+                var(--container),
+                calc(100% - 48px)
+            );
+
+            min-height: 213px;
+
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 20px 0;
+        }
+
+        .hero h1 {
+            color: var(--brown);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(42px, 4vw, 68px);
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #24160e;
+
+            font-size: 17px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           STORY SECTION
+        ===================================================== */
+
+        .story-section {
+            background: var(--cream-light);
+
+            padding:
+                50px
+                0
+                42px;
+
+            border-bottom: 1px solid #ead9c7;
+        }
+
+        .story-container {
+            width: min(
+                var(--container),
+                calc(100% - 48px)
+            );
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, .93fr)
+                minmax(0, 1.07fr);
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        /* Story Content */
+
+        .story-content {
+            min-width: 0;
+        }
+
+        .eyebrow {
+            color: #a4371d;
+
+            font-family: "Allura", cursive;
+
+            font-size: 33px;
+
+            line-height: 1;
+
+            margin-bottom: 13px;
+        }
+
+        .story-content h2 {
+            color: var(--brown);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(30px, 2.4vw, 37px);
+
+            line-height: 1.12;
+
+            font-weight: 700;
+
+            margin-bottom: 23px;
+        }
+
+        .story-content p {
+            max-width: 600px;
+
+            color: #29201b;
+
+            font-size: 15px;
+
+            line-height: 1.65;
+
+            margin-bottom: 18px;
+        }
+
+        .story-content p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* Story Image */
+
+        .story-image-wrap {
+            width: 100%;
+
+            padding: 7px;
+
+            border: 1px solid #d8c9bc;
+
+            background: rgba(255,255,255,.25);
+        }
+
+        .story-image-wrap img {
+            width: 100%;
+
+            aspect-ratio: 1.48 / 1;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            display: block;
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .features {
+            width: min(
+                970px,
+                calc(100% - 48px)
+            );
+
+            margin:
+                28px
+                auto
+                45px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .feature {
+            min-width: 0;
+
+            min-height: 78px;
+
+            padding:
+                0
+                42px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            border-right:
+                1px solid var(--line);
+        }
+
+        .feature:first-child {
+            padding-left: 0;
+        }
+
+        .feature:last-child {
+            border-right: 0;
+            padding-right: 0;
+        }
+
+
+        /* Feature Icon */
+
+        .feature-icon {
+            flex: 0 0 55px;
+
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon img {
+            /* width: 55px;
+            height: 55px; */
+
+            object-fit: contain;
+        }
+
+
+        /* Feature Text */
+
+        .feature-content {
+            min-width: 0;
+        }
+
+        .feature h3 {
+            color: #201710;
+
+            font-size: 15px;
+
+            line-height: 1.3;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            color: #31261f;
+
+            font-size: 13px;
+
+            line-height: 1.45;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .site-footer {
+            width: 100%;
+
+            background: #863600;
+
+            color: #fff;
+            height: 35px;
+            line-height: 35px;
+                text-align: center;
+        }
+
+        .site-footer p {
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           LARGE TABLET
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .desktop-navigation {
+                gap: 38px;
+            }
+
+            .story-container {
+                gap: 45px;
+            }
+
+            .feature {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .feature:first-child {
+                padding-left: 0;
+            }
+
+            .feature:last-child {
+                padding-right: 0;
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .site-header {
+                height: 105px;
+            }
+
+            .logo img {
+                width: 145px;
+            }
+
+            .desktop-navigation {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+
+                gap: 38px;
+            }
+
+            .story-content p {
+                max-width: 100%;
+            }
+
+            .story-image-wrap {
+                max-width: 850px;
+                margin: auto;
+            }
+
+            .features {
+                width: min(
+                    850px,
+                    calc(100% - 48px)
+                );
+            }
+
+            .feature {
+                padding:
+                    0
+                    18px;
+            }
+
+            .feature:first-child {
+                padding-left: 0;
+            }
+
+            .feature:last-child {
+                padding-right: 0;
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 767px) {
+
+            /* ---------- Top bar ---------- */
+
+            .top-bar {
+                height: 35px;
+            }
+
+            .top-bar-inner {
+                width: calc(100% - 30px);
+
+                justify-content: center;
+            }
+
+            .top-message {
+                font-size: 12px;
+            }
+
+            .social-icons {
+                display: none;
+            }
+
+
+            /* ---------- Header ---------- */
+
+            .site-header {
+                height: 82px;
+            }
+
+            .header-inner {
+                width: calc(100% - 30px);
+            }
+
+            .logo img {
+                width: 125px;
+            }
+
+            .hamburger {
+                width: 44px;
+                height: 44px;
+            }
+
+            .hamburger span {
+                width: 27px;
+            }
+
+
+            /* ---------- Mobile navigation ---------- */
+
+            .mobile-navigation {
+                padding-top: 126px;
+            }
+
+            .mobile-navigation a {
+                font-size: 15px;
+                padding: 18px 10px;
+            }
+
+
+            /* ---------- Hero ---------- */
+
+            .hero {
+                min-height: 255px;
+            }
+
+            .hero-image {
+                background-position: 65% center;
+
+                background-image:
+                    linear-gradient(
+                        90deg,
+                        rgba(221,176,132,.72),
+                        rgba(221,176,132,.20)
+                    ),
+                    url("./images/hero.jpg");
+            }
+
+            .hero-content {
+                width: calc(100% - 30px);
+
+                min-height: 255px;
+
+                padding:
+                    25px
+                    0;
+            }
+
+            .hero h1 {
+                font-size: clamp(
+                    43px,
+                    13vw,
+                    58px
+                );
+
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 15px;
+
+                max-width: 300px;
+            }
+
+
+            /* ---------- Story ---------- */
+
+            .story-section {
+                padding:
+                    40px
+                    0
+                    25px;
+            }
+
+            .story-container {
+                width: calc(100% - 30px);
+
+                gap: 28px;
+            }
+
+            .eyebrow {
+                font-size: 29px;
+
+                margin-bottom: 12px;
+            }
+
+            .story-content h2 {
+                font-size: 29px;
+
+                line-height: 1.15;
+
+                margin-bottom: 20px;
+            }
+
+            .desktop-break {
+                display: none;
+            }
+
+            .story-content p {
+                font-size: 14px;
+
+                line-height: 1.7;
+
+                margin-bottom: 17px;
+            }
+
+            .story-image-wrap {
+                padding: 5px;
+            }
+
+            .story-image-wrap img {
+                aspect-ratio: 1.25 / 1;
+            }
+
+
+            /* ---------- Features ---------- */
+
+            .features {
+                width: calc(100% - 30px);
+
+                margin:
+                    22px
+                    auto
+                    35px;
+
+                grid-template-columns: 1fr;
+            }
+
+            .feature,
+            .feature:first-child,
+            .feature:last-child {
+
+                min-height: 84px;
+
+                padding:
+                    17px
+                    5px;
+
+                border-right: 0;
+
+                border-bottom:
+                    1px solid var(--line);
+            }
+
+            .feature:last-child {
+                border-bottom: 0;
+            }
+
+            .feature-icon {
+                flex: 0 0 52px;
+
+                width: 52px;
+                height: 52px;
+            }
+
+            .feature-icon img {
+                width: 52px;
+                height: 52px;
+            }
+
+            .feature h3 {
+                font-size: 14px;
+            }
+
+            .feature p {
+                font-size: 12px;
+            }
+
+
+            /* ---------- Footer ---------- */
+
+            .site-footer {
+                padding: 16px;
+            }
+
+            .site-footer p {
+                font-size: 11px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .top-message {
+                font-size: 11px;
+            }
+
+            .header-inner {
+                width: calc(100% - 24px);
+            }
+
+            .logo img {
+                width: 112px;
+            }
+
+            .hamburger {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hamburger span {
+                width: 25px;
+            }
+
+            .hero {
+                min-height: 230px;
+            }
+
+            .hero-content {
+                min-height: 230px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .story-container {
+                width: calc(100% - 24px);
+            }
+
+            .story-content h2 {
+                font-size: 25px;
+            }
+
+            .story-content p {
+                font-size: 13px;
+                line-height: 1.65;
+            }
+
+            .features {
+                width: calc(100% - 24px);
+            }
+
+            .feature h3 {
+                font-size: 13px;
+            }
+
+            .feature p {
+                font-size: 11px;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 320px) {
+
+            .top-message {
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .story-content h2 {
+                font-size: 23px;
+            }
+
+            .story-content p {
+                font-size: 12px;
+            }
+
+            .feature-icon,
+            .feature-icon img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .feature-icon {
+                flex-basis: 45px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOP BAR
+    ===================================================== -->
+
+    <div class="top-bar">
+
+        <div class="top-bar-inner">
+
+            <p class="top-message">
+                Made With Traditional Recipes
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#" aria-label="Facebook">
+                    <img
+                        src="./images/facebook.png"
+                        alt="Facebook"
+                    >
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <img
+                        src="./images/insta.png"
+                        alt="Instagram"
+                    >
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <!-- Logo -->
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="Kaira Foods Home"
+            >
+                <img
+                    src="./images/inner-logo.png"
+                    alt="Kaira Foods"
+                >
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav
+                class="desktop-navigation"
+                aria-label="Main navigation"
+            >
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="about.html">
+                    ABOUT
+                </a>
+
+                <a href="products.html">
+                    PRODUCTS
+                </a>
+
+                <a href="contact.html">
+                    CONTACT
+                </a>
+
+            </nav>
+
+
+            <!-- Hamburger -->
+
+            <button
+                class="hamburger"
+                id="hamburger"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="mobileNavigation"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Mobile Navigation -->
+
+        <nav
+            class="mobile-navigation"
+            id="mobileNavigation"
+            aria-label="Mobile navigation"
+        >
+
+            <div class="mobile-navigation-inner">
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="about.html">
+                    ABOUT
+                </a>
+
+                <a href="products.html">
+                    PRODUCTS
+                </a>
+
+                <a href="contact.html">
+                    CONTACT
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-image"></div>
+
+            <div class="hero-content">
+
+                <h1>
+                    About Us
+                </h1>
+
+                <p>
+                    Rooted in tradition, made with love.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STORY
+        ================================================= -->
+
+        <section class="story-section">
+
+            <div class="story-container">
+
+
+                <!-- Story Content -->
+
+                <div class="story-content">
+
+                    <div class="eyebrow">
+                        Our Story
+                    </div>
+
+                    <h2>
+                        Bringing Authentic Flavors
+                        <br class="desktop-break">
+                        to Your Table
+                    </h2>
+
+                    <p>
+                        Kaira Foods is a trusted food brand committed
+                        to bringing exceptional taste, quality, and
+                        freshness to every home. We believe that great
+                        food begins with carefully selected ingredients,
+                        thoughtful preparation, and a passion for
+                        authentic flavors.
+                    </p>
+
+                    <p>
+                        Our products are created with a focus on quality,
+                        consistency, and food safety, ensuring that every
+                        bite delivers a satisfying experience.
+                    </p>
+
+                    <p>
+                        At Kaira Foods, we aim to combine traditional
+                        flavors with modern standards of quality and
+                        hygiene. Our goal is to make good food more
+                        accessible, convenient, and enjoyable for
+                        families.
+                    </p>
+
+                    <p>
+                        With a strong commitment to quality and customer
+                        satisfaction, Kaira Foods looks forward to
+                        becoming a trusted name in every kitchen,
+                        creating food that brings people together.
+                    </p>
+
+                </div>
+
+
+                <!-- Story Image -->
+
+                <div class="story-image-wrap">
+
+                    <img
+                        src="./images/story.jpg"
+                        alt="Traditional Kaira Foods products and ingredients"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FEATURES
+        ================================================= -->
+
+        <section class="features">
+
+
+            <!-- Feature 1 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <img
+                        src="./images/leaf.png"
+                        alt=""
+                    >
+
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        Traditional Recipes
+                    </h3>
+
+                    <p>
+                        Authentic flavors passed
+                        down through generations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <img
+                        src="./images/Traditional.png"
+                        alt=""
+                    >
+
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        Premium Ingredients
+                    </h3>
+
+                    <p>
+                        Handpicked spices and
+                        fresh, natural ingredients.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <img
+                        src="./images/quality.png"
+                        alt=""
+                    >
+
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        Hygienically Prepared
+                    </h3>
+
+                    <p>
+                        Prepared in clean, safe
+                        and hygienic conditions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            © 2026 Kaira Foods. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const hamburger =
+            document.getElementById("hamburger");
+
+        const mobileNavigation =
+            document.getElementById("mobileNavigation");
+
+        const mobileLinks =
+            document.querySelectorAll(
+                ".mobile-navigation a"
+            );
+
+
+        /* ==========================================
+           OPEN / CLOSE MENU
+        ========================================== */
+
+        hamburger.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    hamburger.classList.toggle("active");
+
+                mobileNavigation.classList.toggle(
+                    "active",
+                    isOpen
+                );
+
+                hamburger.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                hamburger.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation"
+                        : "Open navigation"
+                );
+
+                document.body.classList.toggle(
+                    "menu-open",
+                    isOpen
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           CLOSE MENU AFTER LINK CLICK
+        ========================================== */
+
+        mobileLinks.forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    closeMobileMenu();
+
+                }
+            );
+
+        });
+
+
+        /* ==========================================
+           CLOSE MENU FUNCTION
+        ========================================== */
+
+        function closeMobileMenu() {
+
+            hamburger.classList.remove("active");
+
+            mobileNavigation.classList.remove("active");
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            hamburger.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+
+        /* ==========================================
+           CLOSE MENU WHEN RESIZING
+        ========================================== */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                if (window.innerWidth > 900) {
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+
+        /* ==========================================
+           ESC KEY CLOSE
+        ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    mobileNavigation.classList.contains("active")
+                ) {
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
